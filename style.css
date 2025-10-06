@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    text-align: center;
+}
+form{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form input{
+    width: 100%;
+    padding: 6px 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+button{
+    margin-top: 20px;
+    background-color: black;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+}
