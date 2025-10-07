@@ -1,5 +1,6 @@
-// config command
-//     The git config command in Git is used to set, get, and list configuration options
+// Config Command------
+// The git config command in Git is used to set, get, and list configuration options
+
 // to set global-------
 // git config --global user.name
 // git config --global user.emal
@@ -13,24 +14,24 @@
 // git clone https://github.com/vanshikaRathore16/temprary
 
 // branch list
-//    git branch
+// git branch
 // creeate branch
-//    git branch button-update
-//    git checkout -b branch indentation
+// git branch button-update
+// git checkout -b branch indentation
 
 // add all change
 //  git add .
 
- // to commit change
-//  git commit -m "chnage the indentation"
+// to commit change
+//  git commit -m "change the indentation"
 
- // to get last commite msg and after that we chnage it
+// to get last commit msg and after that we chnage it
 //  git reset --soft head~1
 
- // tolaunch the graphical repository browser, :
+// tolaunch the graphical repository browser, :
 //  git gitk
 
-// to push code in github
+// to push code in branch
 // git push -u origin indentation
 
 //stash 
@@ -79,10 +80,4 @@
 //  * [new branch]      git-command -> git-command
 // Branch 'git-command' set up to track remote branch 'git-command' from 'origin'
 
-
-
-
-
-
-
-
+//git restore --staged <file>... (add .)
