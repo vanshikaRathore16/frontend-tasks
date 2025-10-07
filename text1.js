@@ -57,6 +57,28 @@
 
 // git merge ui-update
 
+// update branch name 
+// Rename the local branch.
+// git branch -m <new_branch_name>
+// if you are in diffrent branch
+// git branch -m <old_branch_name> <new_branch_name>
+// to push the code 
+// git push origin -u <new_branch_name>
+// delete old files  
+// git push origin --delete <old_branch_name>
+
+// git push -u origin git-command
+// Username for 'https://github.com': vanshikaRathore16
+// Password for 'https://vanshikaRathore16@github.com': 
+// Total 0 (delta 0), reused 0 (delta 0)
+// remote: 
+// remote: Create a pull request for 'git-command' on GitHub by visiting:
+// remote:      https://github.com/vanshikaRathore16/temprary/pull/new/git-command
+// remote: 
+// To https://github.com/vanshikaRathore16/temprary
+//  * [new branch]      git-command -> git-command
+// Branch 'git-command' set up to track remote branch 'git-command' from 'origin'
+
 
 
 
