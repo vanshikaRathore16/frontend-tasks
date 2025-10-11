@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>muvie management system</title>
+</head>
+<body>
+    <div class="container">
+       <h1>muvie management system</h1>
+       <div class="selection">
+         <select id = "muvieSelect">
+           <option value="">muvie name </option>
+           <option value="200">Avengers(&#8377;200)</option>
+           <option value="150">Inception(&#8377;150)</option>
+           <option value="250">Barbie(&#8377;250)</option>
+         </select>  
+         <select id="theaterSelect">
+            <option value="">theater name</option>
+            <option value="PVR">PVR Cinemas</option>
+            <option value="Inox">INOX</option>
+            <option value="Carnival">Carnival</option>
+         </select>
+         <button id = "applyBtn">apply</button>
+       </div>
+       <div class="output hidden" id = "output"></div>
+       <div id = "seatContainer"></div>
+       <div class="summery hidden">
+          <p>selected seat <span id = "count">0</span></p>
+          <p>total seat <span id = "total">0</span></p>
+          <button id="btn" disabled>book</button>
+       </div>
+    </div> 
+    <script src="script.js"></script>
+</body>
+</html>
