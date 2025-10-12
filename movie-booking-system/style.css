@@ -1,6 +1,4 @@
-.hidden{
-    display: none;
-}
+
 
 #seatContainer{
     display: grid;
@@ -45,4 +43,53 @@
 #btn:disabled{
     background-color: grey;
     cursor: not-allowed;
+}
+
+.model {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  width: 340px;
+  padding: 25px 35px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  
+} 
+
+.model-content{
+    backdrop-filter: white;
+     padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    min-height: auto;
+}
+
+.model-button{
+    margin: 10px;
+    padding: 4px ;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+}
+
+ #confirmbtn{
+    background-color: #28a745;
+    color: white;
+     
+}
+
+#cancelbtn{
+    background-color: #dc3545;
+    color: white;
+      
+} 
+.hidden{
+    display: none !important;;
 }

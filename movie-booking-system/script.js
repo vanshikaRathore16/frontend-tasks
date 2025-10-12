@@ -8,7 +8,14 @@ const count = document.getElementById("count");
 const total = document.getElementById("total");
 const bookbtn = document.getElementById("btn");
 
+const model = document.getElementById("model");
+const confirmBtn = document.getElementById("confirmbtn")
+const cancelBtn = document.getElementById("cancelbtn")
+const modelSeat = document.getElementById("modelSeat");
+const modelPrice = document.getElementById("modelPrice");
 
+
+let totalPrice = 0;
 let ticketPrice = 0;
 let selectedSeat = [];
 
@@ -62,10 +69,17 @@ function showOutput(){
 function seatLayout(){
     seatContainer.innerHTML = "";
     summery.classList.remove("hidden");
+    let muvie = muvieSelect.value;
+    let theater = theaterSelect.value;
+    const bookedSeat = JSON.parse(localStorage.getItem(getBookedSeatKey(muvie,theater))) || [];
     for(let i = 0;i < 30;i++){
         let seat = document.createElement("button");
         seat.classList.add("seat");
         seat.innerText = i;
+        if(bookedSeat.includes(i)){
+            seat.classList.add("occupied");
+            seat.disabled = true;
+        }
         seat.addEventListener("click",()=> selecteSeat(seat) )
         seatContainer.appendChild(seat);
     }
@@ -80,11 +94,44 @@ function selecteSeat(seat){
 }
 
 function updateSummery(){
-         let countvalue = selectedSeat.length;
-        let totalPrice = countvalue*ticketPrice;
+        let countvalue = selectedSeat.length;
+         totalPrice = countvalue*ticketPrice;
         console.log("total price",totalPrice);
          count.textContent = countvalue;
          total.textContent = totalPrice;
          bookbtn.disabled = countvalue === 0;
 }
 
+bookbtn.addEventListener("click",()=>{
+       modelSeat.textContent = selectedSeat.length;
+       modelPrice.textContent = totalPrice;
+       model.classList.remove("hidden");   
+})
+
+cancelBtn.addEventListener("click",()=>{
+    model.classList.add("hidden")
+})
+
+confirmBtn.addEventListener("click",()=>{
+    const movie = muvieSelect.value;
+    const theater = theaterSelect.value;
+    const bookedSeatedKey = getBookedSeatKey(movie,theater);
+    const bookSeat = JSON.parse(localStorage.getItem(bookedSeatedKey)) || [];
+    console.log(bookedSeatedKey);
+    selectedSeat.forEach(seat=>{
+        const seatNumber = [...seatContainer.children].indexOf(seat) + 1;
+        bookSeat.push(seatNumber);
+        seat.classList.remove("selected");
+        seat.classList.add("occupied");
+        seat.disabled = true;
+    })
+    localStorage.setItem(bookedSeatedKey,JSON.stringify(bookSeat));
+    alert("ticket booked successfully......");
+    updateSummery();
+    selectedSeat = [];
+    model.classList.add("hidden");
+})
+
+function getBookedSeatKey(movie,theater){
+    return `bookedSeat_${movie}_${theater}`
+}
