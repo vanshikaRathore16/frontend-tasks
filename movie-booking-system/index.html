@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>muvie management system</title>
+  <title>movie management system</title>
 </head>
+
 <body>
-    <div>
-       <h1 class="text-center mb-4 text-primary">muvie management system</h1>
-       <div class="selection d-flex gap-2 align-items-center mt-3" >
-         <select id = "muvieSelect" class="custom-select mr-2">
-           <option value="">muvie name </option>
-           <option value="200">Avengers(&#8377;200)</option>
-           <option value="150">Inception(&#8377;150)</option>
-           <option value="250">Barbie(&#8377;250)</option>
-         </select>  
-         <select id="theaterSelect" class="custom-select mr-2">
-            <option value="">theater name</option>
-            <option value="PVR">PVR Cinemas</option>
-            <option value="Inox">INOX</option>
-            <option value="Carnival">Carnival</option>
-         </select>
-         <button id = "applyBtn" class="btn btn-primary">apply</button>
-       </div>
-       <!-- output -->
-       <div class="output hidden alert alert-success mt-3" id = "output"></div>
-       <!-- seat -->
-       <div id = "seatContainer"></div>
-
-       <div class="summery hidden  card p-3 mt-3 shadow-sm text-center">
-          <p>selected seat <span id = "count" class="font-weight-bold">0</span></p>
-          <p>total seat <span id = "total" class="font-weight-bold">0</span></p>
-          <button id="btn" class="btn btn-success" disabled>book</button>
-       </div>
-
-      <div class="model hidden" id="model">
-  <div class="model-content">
-    <h4 class="mb-3">Confirm Booking</h4>
-    <p>Seats Selected: <span id="modelSeat" class="font-weight-bold">0</span></p>
-    <p>Price: <span id="modelPrice" class="font-weight-bold">0</span></p>
-    <div>
-      <button id="confirmbtn" >Confirm</button>
-      <button id="cancelbtn" >Cancel</button>
+  <div>
+    <h1 class="text-center mb-4 text-primary">movie management system</h1>
+    <div class="selection d-flex gap-2 align-items-center mt-3">
+      <select id="muvieSelect" class="custom-select mr-2">
+        <option value="">movie name </option>
+        <option value="200">Avengers(&#8377;200)</option>
+        <option value="150">Inception(&#8377;150)</option>
+        <option value="250">Barbie(&#8377;250)</option>
+      </select>
+      <select id="theaterSelect" class="custom-select mr-2">
+        <option value="">theater name</option>
+        <option value="PVR">PVR Cinemas</option>
+        <option value="Inox">INOX</option>
+        <option value="Carnival">Carnival</option>
+      </select>
+      <button id="applyBtn" class="btn btn-primary">apply</button>
     </div>
-  </div>
-</div>
+    
+    <div class="output hidden alert alert-success mt-3" id="output"></div>
+    
+    <div id="seatContainer"></div>
 
-    </div> 
-    <script src="script.js"></script>
+    <div class="summery hidden  card p-3 mt-3 shadow-sm text-center">
+      <p>selected seat <span id="count" class="font-weight-bold">0</span></p>
+      <p>total seat <span id="total" class="font-weight-bold">0</span></p>
+      <button id="btn" class="btn btn-success" disabled>book</button>
+    </div>
+
+    <div class="model hidden" id="model">
+      <div class="model-content">
+        <h4 class="mb-3">Confirm Booking</h4>
+        <p>Seats Selected: <span id="modelSeat" class="font-weight-bold">0</span></p>
+        <p>Price: <span id="modelPrice" class="font-weight-bold">0</span></p>
+        <div>
+          <button id="confirmbtn">Confirm</button>
+          <button id="cancelbtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
 </body>
+
 </html>

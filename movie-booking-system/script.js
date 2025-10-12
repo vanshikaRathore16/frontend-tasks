@@ -7,7 +7,6 @@ const summery = document.querySelector(".summery");
 const count = document.getElementById("count");
 const total = document.getElementById("total");
 const bookbtn = document.getElementById("btn");
-
 const model = document.getElementById("model");
 const confirmBtn = document.getElementById("confirmbtn")
 const cancelBtn = document.getElementById("cancelbtn")
