@@ -93,46 +93,77 @@ function showOutput() {
     output.classList.remove("hidden")
 }
 
-function seatLayout(){
-    seatContainer.innerHTML = "";
-    let muvie = muvieSelect.value;
-    let theater = theaterSelect.value;
-    summery.classList.remove("hidden");
-    let BS = JSON.parse(localStorage.getItem(getBookedSeatKey(muvie, theater))) || []
-    console.log("key for bookSeat", getBookedSeatKey(muvie, theater));
-    console.log("book seat",BS);
-    let seatIndex = Array.from(({ length: 24 }), (_, i) => i + 1);
-    console.log(seatIndex);
-    console.log("seat index length", seatIndex.length);
-    for (let i in seatIndex){
-        console.log("type of i inside for loop = ", typeof (i));
-        // console.log("for in",i);
-        let seatnum = seatIndex[i];
-        let seat = document.createElement("button");
-        seat.classList.add("seat");
-        seat.innerText = setSeatname(seatnum);
-        console.log("seat innertext", seat.innerText);
-        console.log("outside if", seatnum);
-        if (BS.includes(Number(i))) {
-            console.log("inside if statement", i);
-            seat.classList.add("occupied");
-            seat.disabled = true;
-        }
-        seat.addEventListener("click", () => { selecteSeat(seat) });
-        seatContainer.appendChild(seat);
-    }
+// function seatLayout(){
+//     seatContainer.innerHTML = "";
+//     let muvie = muvieSelect.value;
+//     let theater = theaterSelect.value;
+//     summery.classList.remove("hidden");
+//     let BS = JSON.parse(localStorage.getItem(getBookedSeatKey(muvie, theater))) || []
+//     console.log("key for bookSeat", getBookedSeatKey(muvie, theater));
+//     console.log("book seat",BS);
+//     let seatIndex = Array.from(({ length: 24 }), (_, i) => i + 1);
+//     console.log(seatIndex);
+//     console.log("seat index length", seatIndex.length);
+//     for (let i in seatIndex){
+//         console.log("type of i inside for loop = ", typeof (i));
+//         // console.log("for in",i);
+//         let seatnum = seatIndex[i];
+//         let seat = document.createElement("button");
+//         seat.classList.add("seat");
+//         seat.innerText = setSeatname(seatnum);
+//         console.log("seat innertext", seat.innerText);
+//         console.log("outside if", seatnum);
+//         if (BS.includes(Number(i))) {
+//             console.log("inside if statement", i);
+//             seat.classList.add("occupied");
+//             seat.disabled = true;
+//         }
+//         seat.addEventListener("click", () => { selecteSeat(seat) });
+//         seatContainer.appendChild(seat);
+//     }
     
-    updateSummery();
+//     updateSummery();
+// }
+
+function seatLayout(){
+seatContainer.innerHTML = "";
+  let muvie = muvieSelect.value;
+  let theater = theaterSelect.value;
+  summery.classList.remove("hidden");
+  let BS = JSON.parse(localStorage.getItem(getBookedSeatKey(muvie, theater))) || [];
+  let seatIndex = Array.from({ length: 24 }, (_, i) => i + 1);
+  const rows = ["A", "B", "C", "D"];
+  let cols = 6;
+  for(let i in seatIndex){
+     let num = parseInt(i);
+     let rowLetter = rows[Math.floor(num/cols)];
+     let colNumber = (num % cols) + 1;
+     let seatName = `${rowLetter}${colNumber}`
+
+     let seat = document.createElement("button");
+     seat.classList.add("seat");
+     seat.textContent = seatName;
+     if(BS.includes(seatName)){
+        seat.classList.add("occupied");
+        seat.disabled = true;
+     }
+     seat.addEventListener("click",()=>{
+        selecteSeat(seat);
+     })
+     seatContainer.appendChild(seat);
+  }
+    updateSummery()
 }
 
 function selecteSeat(seat) {
-    if (!seat.classList.contains("selected") && selectedSeat.length >= maxTicket) {
-        alert(`max ticket limit ${maxTicket}`);
-        return;
-    }
     seat.classList.toggle("selected");
     let nodelist = document.querySelectorAll(".seat.selected");
     selectedSeat = [...nodelist];
+    if(selectedSeat.length > maxTicket){
+        seat.classList.remove("selected");
+        alert(`Max ticket limit is ${maxTicket}`)
+        selectedSeat.pop();
+    }
     updateSummery();
 }
 
@@ -155,18 +186,18 @@ cancelBtn.addEventListener("click", () => {
     model.classList.add("hidden")
 })
 
-confirmBtn.addEventListener("click", () => {
-    if (selectedSeat.length < 1) {
-        alert`select at least 1 ticket`
+confirmBtn.addEventListener("click", () => { 
+    if(selectedSeat.length < minTicket){
+        alert(`Please select at least ${minTicket} ticket`)
         return
-    }
+    } 
     const movie = muvieSelect.value;
     const theater = theaterSelect.value;
     const bookedSeatedKey = getBookedSeatKey(movie, theater);
     const bookSeat = JSON.parse(localStorage.getItem(bookedSeatedKey)) || [];
     console.log(bookedSeatedKey);
     selectedSeat.forEach(seat => {
-        const seatNumber = [...seatContainer.children].indexOf(seat);
+        const seatNumber = seat.textContent;
         bookSeat.push(seatNumber);
         seat.classList.remove("selected");
         seat.classList.add("occupied");
@@ -178,4 +209,5 @@ confirmBtn.addEventListener("click", () => {
     selectedSeat = [];
     model.classList.add("hidden");
 })
+
 

@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <title>movie management system</title>
+  <title>Movie Management System</title>
 </head>
 
 <body>
@@ -17,20 +17,20 @@
     <h1 class="text-center mb-4 text-primary">movie management system</h1>
     <div class="selection d-flex gap-2 align-items-center mt-3">
       <select id="muvieSelect" class="custom-select mr-2">
-        <option value="" disabled >movie name </option>
+        <option value="" selected disabled>Select Movie </option>
         <option value="200">Avengers(&#8377;200)</option>
         <option value="150">Inception(&#8377;150)</option>
         <option value="250">Barbie(&#8377;250)</option>
       </select>
       <select id="theaterSelect" class="custom-select mr-2" >
-        <option value="" disabled>theater name</option>
+        <option value="" selected disabled>Select Theater</option>
         <option value="PVR">PVR Cinemas</option>
         <option value="Inox">INOX</option>
         <option value="Carnival">Carnival</option>
       </select>
       
-      <button id="applyBtn" class="btn btn-primary">apply</button>
-       <button id="removeBtn" class="btn btn-primary">remove</button>
+      <button id="applyBtn" class="btn btn-primary">Apply</button>
+       <button id="removeBtn" class="btn btn-primary">Remove</button>
     </div>
     
     <div class="output hidden alert alert-success mt-3" id="output"></div>
@@ -40,7 +40,7 @@
     <div class="summery hidden card p-3 mt-3 shadow-sm text-center">
       <p>selected seat <span id="count" class="font-weight-bold">0</span></p>
       <p>total seat <span id="total" class="font-weight-bold">0</span></p>
-      <button id="btn" class="btn btn-success" disabled>book</button>
+      <button id="btn" class="btn btn-success" disabled>Book</button>
     </div>
 
     <div class="model hidden" id="model">
