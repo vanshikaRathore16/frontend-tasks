@@ -3,10 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { DataService } from './data-service';
 import { A } from './a/a';
 import { B } from './b/b';
+import { Lifecycle } from './lifecycle/lifecycle';
+import {Observable1} from "./observable/observable"
 import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,A, HttpClientModule,B],
+  imports: [RouterOutlet,A, HttpClientModule,B,Observable1,Lifecycle],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
