@@ -11,9 +11,11 @@ import { Product } from './product/product';
 import { CommonModule } from '@angular/common';
 import { NewCompo } from './new-compo/new-compo';
 import { NgModel } from '@angular/forms';
+import { TemplateForm } from './template-form/template-form';
+import { ReactiveForm } from './reactive-form/reactive-form';
 @Component({
   selector: 'app-root',
-  imports: [NewCompo,CommonModule,RouterOutlet,A, HttpClientModule,B,Observable1,Lifecycle,RouterLink,Product],
+  imports: [ReactiveForm,TemplateForm,NewCompo,CommonModule,RouterOutlet,A, HttpClientModule,B,Observable1,Lifecycle,RouterLink,Product],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

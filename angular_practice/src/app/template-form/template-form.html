@@ -1,0 +1,23 @@
+<!-- <p>template-form works!</p> -->
+ <form #userForm="ngForm" (ngSubmit)="getDetail(userForm.value)">
+    <input placeholder="enter name" name="name" type="text" ngModel>
+    <br>
+    <br>
+    <input placeholder="enter password" name="password" type="password" ngModel>
+    <br>
+    <br>
+    <select name="gender" ngModel>
+        <option value="">Selcet Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+    <br>
+    <br>
+    <input type="range" min="0" max="20" name="range" ngModel>
+    <button>Add User</button>
+ </form>
+ <h1>User Details</h1>
+ <p>{{userDetails?.name}}</p>
+  <p>{{userDetails?.password}}</p>
+   <p>{{userDetails?.range}}</p>
+    <p>{{userDetails?.gender}}</p>

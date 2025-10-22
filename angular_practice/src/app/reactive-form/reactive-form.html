@@ -1,0 +1,10 @@
+<p>reactive-form works!</p>
+<form>
+    <input placeholder="Enter Name" [formControl]="name">
+    <br><br>
+    <input placeholder="Enter Password" [formControl]="password">
+    <br><br>
+    <button type="button" (click)="display()">Submit</button>
+</form>
+<h3>{{name.value}}</h3>
+<h3>{{password.value}}</h3>
